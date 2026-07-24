@@ -1,0 +1,14 @@
+# R Program to Create and Display a 3D Array
+
+# Create a 3D array with 3 rows, 4 columns, and 2 tables
+arr <- array(1:24, dim = c(3, 4, 2))
+
+# Assign names to dimensions
+dimnames(arr) <- list(
+  Row = paste0("R", 1:3),
+  Column = paste0("C", 1:4),
+  Table = paste0("T", 1:2)
+)
+
+# Display the 3D array
+print(arr)
