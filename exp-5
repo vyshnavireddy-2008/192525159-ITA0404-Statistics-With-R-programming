@@ -1,0 +1,35 @@
+# Factor using women's heights
+
+# Display first few rows of women dataset
+print(head(women))
+
+# Convert height into a factor
+height_factor <- factor(women$height)
+
+cat("Height Factor:\n")
+print(height_factor)
+
+cat("\nLevels of Height Factor:\n")
+print(levels(height_factor))
+
+
+# Factor using random LETTERS sample
+
+# Generate random letters
+set.seed(123)
+letters_sample <- sample(LETTERS[1:5], 10, replace = TRUE)
+
+cat("\nRandom Letters:\n")
+print(letters_sample)
+
+# Convert to factor
+letter_factor <- factor(letters_sample)
+
+cat("\nLetter Factor:\n")
+print(letter_factor)
+
+cat("\nLevels:\n")
+print(levels(letter_factor))
+
+cat("\nFrequency of Each Letter:\n")
+print(table(letter_factor))
