@@ -1,0 +1,15 @@
+# Generate 20 random numbers from a normal distribution
+set.seed(123)
+
+numbers <- rnorm(20, mean = 50, sd = 10)
+
+# Display the generated numbers
+cat("Random Numbers:\n")
+print(numbers)
+
+# Round the numbers
+rounded_numbers <- round(numbers)
+
+# Count occurrences
+cat("\nOccurrences of Rounded Numbers:\n")
+print(table(rounded_numbers))
