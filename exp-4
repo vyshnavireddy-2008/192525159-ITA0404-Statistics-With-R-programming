@@ -1,0 +1,17 @@
+# Create a vector
+v <- c(10, 20, 30, 40, 50, 60)
+# Create an array with dimension names
+arr <- array(v,
+             dim = c(2, 3),
+             dimnames = list(
+               Row = c("R1", "R2"),
+               Column = c("C1", "C2", "C3")
+             ))
+# Print the array
+cat("Array:\n")
+print(arr)
+# Print specific elements
+cat("\nElement at Row R1, Column C2:\n")
+print(arr["R1", "C2"])
+cat("\nElement at Row R2, Column C3:\n")
+print(arr["R2", "C3"])
