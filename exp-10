@@ -1,0 +1,47 @@
+# Create a data frame
+
+exam_data <- data.frame(
+  name = c("Arun", "Bala", "Charan", "Divya", "Eswar"),
+  score = c(85, 67, 90, 75, 60),
+  attempts = c(1, 2, 1, 3, 2),
+  qualify = c(TRUE, FALSE, TRUE, TRUE, FALSE)
+)
+
+# Display the data frame
+print(exam_data)
+
+# Explore the data frame
+str(exam_data)
+summary(exam_data)
+
+# Extract data
+# First 3 rows
+exam_data[1:3, ]
+
+# Name and Score columns
+exam_data[, c("name", "score")]
+
+# Students with score > 70
+exam_data[exam_data$score > 70, ]
+
+# Add a new row
+new_student <- data.frame(
+  name = "Farhan",
+  score = 88,
+  attempts = 1,
+  qualify = TRUE
+)
+
+exam_data <- rbind(exam_data, new_student)
+
+# Add a new column
+exam_data$grade <- c("B", "C", "A", "B", "C", "A")
+
+# Sort by score (descending)
+exam_data <- exam_data[order(exam_data$score, decreasing = TRUE), ]
+
+# Display updated data frame
+print(exam_data)
+
+# Save to a CSV file
+write.csv(exam_data, "exam_data.csv", row.names = FALSE)
