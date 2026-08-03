@@ -1,0 +1,11 @@
+# Read CSV file
+data <- read.csv("exam_data.csv")
+
+# Display contents
+print(data)
+
+# Structure
+str(data)
+
+# Summary
+summary(data)
