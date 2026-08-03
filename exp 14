@@ -1,0 +1,32 @@
+# Install package
+install.packages("reshape2")
+
+# Load package
+library(reshape2)
+
+# Load dataset
+data(ChickWeight)
+
+# Display first rows
+head(ChickWeight)
+
+# Sort by weight
+sorted_data <- ChickWeight[order(-ChickWeight$weight), ]
+print(head(sorted_data))
+
+# Melt
+melt_data <- melt(
+  ChickWeight,
+  id.vars = c("Chick", "Diet")
+)
+
+print(head(melt_data))
+
+# Cast by Diet
+cast_data <- dcast(
+  melt_data,
+  Diet ~ variable,
+  mean
+)
+
+print(cast_data)
