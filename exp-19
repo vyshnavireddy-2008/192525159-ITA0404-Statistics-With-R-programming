@@ -1,0 +1,20 @@
+# Read advertising dataset
+advertising <- read.csv("Advertising.csv")
+
+# Build regression model
+model <- lm(Sales ~ Spend, data = advertising)
+
+# Display model
+summary(model)
+
+# Predict Sales
+new_data <- data.frame(Spend = 100)
+predict(model, newdata = new_data)
+
+# Plot regression
+plot(advertising$Spend, advertising$Sales,
+     main = "Sales vs Spend",
+     xlab = "Spend",
+     ylab = "Sales")
+
+abline(model)
