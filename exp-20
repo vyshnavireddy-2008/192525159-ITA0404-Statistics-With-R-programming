@@ -1,0 +1,33 @@
+# Load dataset
+data(ChickWeight)
+
+# Convert Diet to factor
+ChickWeight$Diet <- as.factor(ChickWeight$Diet)
+
+# Multiple regression model
+model <- lm(weight ~ Time + Diet, data = ChickWeight)
+
+# Model summary
+summary(model)
+
+# Predict weight
+new_data <- data.frame(Time = 10,
+                       Diet = factor(1,
+                       levels = levels(ChickWeight$Diet)))
+
+predict(model, newdata = new_data)
+
+# Predicted values
+predicted <- predict(model)
+
+# Model error
+actual <- ChickWeight$weight
+error <- actual - predicted
+
+# Mean Absolute Error
+MAE <- mean(abs(error))
+MAE
+
+# Mean Squared Error
+MSE <- mean(error^2)
+MSE
