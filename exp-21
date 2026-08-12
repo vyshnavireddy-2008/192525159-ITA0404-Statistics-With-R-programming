@@ -1,0 +1,42 @@
+# Load iris dataset
+data(iris)
+
+# Use only two species
+iris2 <- subset(iris, Species != "setosa")
+
+# Convert Species to factor
+iris2$Species <- factor(iris2$Species)
+
+# Random split: 80% training and 20% testing
+set.seed(123)
+
+n <- nrow(iris2)
+train_index <- sample(1:n, size = 0.8 * n)
+
+train <- iris2[train_index, ]
+test <- iris2[-train_index, ]
+
+# Logistic regression
+model <- glm(Species ~ Petal.Length + Petal.Width,
+             data = train,
+             family = binomial)
+
+# Prediction
+prob <- predict(model,
+                newdata = test,
+                type = "response")
+
+pred <- ifelse(prob > 0.5,
+               "virginica",
+               "versicolor")
+
+pred <- factor(pred,
+               levels = levels(test$Species))
+
+# Confusion matrix
+table(Actual = test$Species,
+      Predicted = pred)
+
+# Accuracy
+accuracy <- mean(pred == test$Species)
+accuracy
