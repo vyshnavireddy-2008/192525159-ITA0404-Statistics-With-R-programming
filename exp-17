@@ -1,0 +1,27 @@
+# Load Titanic dataset
+data(Titanic)
+
+# Convert table to data frame
+titanic_data <- as.data.frame(Titanic)
+
+# Bar chart: Survival vs Class
+barplot(tapply(titanic_data$Freq,
+               list(titanic_data$Class,
+                    titanic_data$Survived), sum),
+        beside = TRUE,
+        legend = TRUE,
+        main = "Survival vs Class",
+        xlab = "Class",
+        ylab = "Number")
+
+# Survival vs Class modified by Gender
+barplot(tapply(titanic_data$Freq,
+               list(titanic_data$Class,
+                    titanic_data$Sex,
+                    titanic_data$Survived), sum),
+        beside = TRUE,
+        legend = TRUE,
+        main = "Survival by Class and Gender")
+
+# Note: Titanic dataset does not contain individual Age values.
+# Use a histogram only if an Age column is available.
